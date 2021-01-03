@@ -1,0 +1,15 @@
+# BEST PRACTICES
+- Apply SOLID principles.
+- use upperCamelCase for class names.
+- use lowerCamelCase for functions, methods, parameters and attributes.
+- create test spec file for each class (provider, component, directive, pipe)
+- use kebab for folders and files.
+- names of functions, attributes, parameters, that are clear, legible and that describe the use.
+- attributes and parameters have to have an assigned type.
+- in the scss files, use variables for property assignments.
+- a file will only contain one class.
+- use the DRY principle (Do not Repeat Yourself) for the components and classes. Do not write redundant things.
+- Do not remove the keys in code structures that only have one line inside, for example the if statement.
+- No warnings in TSlint (npm run lint)
+- In case of doubts use the [style guide](https://angular.io/guide/styleguide) of angular
+- Use angular architecture comes down to three main players: services, container components, and presentation components [more info](https://medium.com/fincura-engineering/front-end-architecture-for-angular-applications-d6840b78706c)
