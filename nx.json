@@ -32,6 +32,9 @@
     },
     "shared-mock-api-interceptor": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "shared-storage": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

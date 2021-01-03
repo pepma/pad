@@ -1,1 +1,1 @@
-export * from './lib/shared-mock-api-interceptor.module';
+export * from './lib/mock-api.module';

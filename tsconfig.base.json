@@ -15,9 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pad/mock-api-interceptor": [
-        "libs/shared/mock-api-interceptor/src/index.ts"
-      ]
+      "@pad/mock-api-interceptor": ["libs/shared/mock-api-interceptor/src/index.ts"],
+      "@pad/shared/storage": ["libs/shared/storage/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

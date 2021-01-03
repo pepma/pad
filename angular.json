@@ -70,10 +70,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/apod/src/**/*.ts",
-              "apps/apod/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/apod/src/**/*.ts", "apps/apod/src/**/*.html"]
           }
         },
         "test": {
@@ -144,6 +141,27 @@
           "outputs": ["coverage/libs/shared/mock-api-interceptor"],
           "options": {
             "jestConfig": "libs/shared/mock-api-interceptor/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-storage": {
+      "root": "libs/shared/storage",
+      "sourceRoot": "libs/shared/storage/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/storage/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/storage"],
+          "options": {
+            "jestConfig": "libs/shared/storage/jest.config.js",
             "passWithNoTests": true
           }
         }
