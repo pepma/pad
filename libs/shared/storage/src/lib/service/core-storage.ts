@@ -6,9 +6,9 @@ import { STRATEGY_STORAGE_TOKEN } from '../token/strategy-storage.token';
 
 @Injectable()
 export class CoreStorage<T> implements BaseStorage<T> {
-  private storage: BaseStorage<T>;
+  private storage: Storage;
 
-  constructor(@Inject(STRATEGY_STORAGE_TOKEN) strategy: StrategyStorage<T>) {
+  constructor(@Inject(STRATEGY_STORAGE_TOKEN) strategy: StrategyStorage) {
     this.storage = strategy.type;
   }
 
@@ -17,7 +17,7 @@ export class CoreStorage<T> implements BaseStorage<T> {
   }
 
   getItem(key: string): T {
-    const item = JSON.parse(sessionStorage.getItem(key) || '{}');
+    const item = JSON.parse(this.storage.getItem(key) || '{}');
     return item as T;
   }
 

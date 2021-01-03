@@ -1,6 +1,4 @@
-import { BaseStorage } from './base.storage.model';
-
-export interface StrategyStorage<T> {
-  type: BaseStorage<T>;
+export interface StrategyStorage {
+  type: Storage;
   storageKey?: string;
 }

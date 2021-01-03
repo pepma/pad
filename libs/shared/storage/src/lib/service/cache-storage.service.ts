@@ -10,7 +10,7 @@ export class DefaultCacheStorage<T> implements BaseStorage<T> {
     return this.cache.has(key);
   }
 
-  getItem(key: string) {
+  getItem(key: string): T {
     return this.cache.get(key);
   }
 

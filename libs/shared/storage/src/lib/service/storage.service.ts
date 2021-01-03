@@ -11,7 +11,7 @@ export class StorageService<T> implements BaseStorage<T> {
   private readonly cache = new DefaultCacheStorage<T>();
   private readonly storageKey: string;
 
-  constructor(@Inject(STRATEGY_STORAGE_TOKEN) strategy: StrategyStorage<T>, private currentStorage: CoreStorage<T>) {
+  constructor(@Inject(STRATEGY_STORAGE_TOKEN) strategy: StrategyStorage, private currentStorage: CoreStorage<T>) {
     this.storageKey = strategy.storageKey;
   }
 
@@ -34,8 +34,8 @@ export class StorageService<T> implements BaseStorage<T> {
   }
 
   setItem(key: string, data: T): void {
-    this.currentStorage.setItem(this.storageKey, data);
     this.cache.setItem(key, data);
+    this.currentStorage.setItem(this.storageKey, data);
   }
 
   clear(): void {

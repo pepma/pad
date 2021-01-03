@@ -17,7 +17,7 @@ import { RequestHandlerMockApiService } from './service/request-handler-mockapi.
       multi: true,
     },
   ],
-  imports: [CommonModule, StorageModule],
+  imports: [CommonModule, StorageModule.forChild('pad_mock_api_interceptor', window.sessionStorage)],
   exports: [],
 })
 export class MockApiModule {}
