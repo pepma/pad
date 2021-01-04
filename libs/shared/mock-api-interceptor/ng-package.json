@@ -2,6 +2,6 @@
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/libs/shared/mock-api-interceptor",
   "lib": {
-    "entryFile": "../index-package-mock-api.interceptor.ts"
+    "entryFile": "../package-mock-api.index.ts"
   }
 }

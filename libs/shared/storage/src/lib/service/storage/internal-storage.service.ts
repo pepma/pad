@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
 
-import { BaseStorage } from '../model/base.storage.model';
-import { StrategyStorage } from '../model/strategy-storage.model';
-import { STRATEGY_STORAGE_TOKEN } from '../token/strategy-storage.token';
+import { BaseStorage } from '../../model/base.storage.model';
+import { StrategyStorage } from '../../model/strategy-storage.model';
+import { STRATEGY_STORAGE_TOKEN } from '../../token/strategy-storage.token';
 
 @Injectable()
-export class CoreStorage<T> implements BaseStorage<T> {
+export class InternalStorageService<T> implements BaseStorage<T> {
   private storage: Storage;
 
   constructor(@Inject(STRATEGY_STORAGE_TOKEN) strategy: StrategyStorage) {
@@ -17,8 +17,7 @@ export class CoreStorage<T> implements BaseStorage<T> {
   }
 
   getItem(key: string): T {
-    const item = JSON.parse(this.storage.getItem(key) || '{}');
-    return item as T;
+    return JSON.parse(this.storage.getItem(key));
   }
 
   setItem(key: string, data: T): void {

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CoreStorage } from '@pad/shared/storage';
+import { StorageFacadeService } from '@pad/shared/storage';
 
 @Injectable({ providedIn: 'root' })
 export class TagsStateService {
   private PAD_MOCK_TAGS = 'pad_mockTags';
 
-  constructor(private storage: CoreStorage<string[]>) {}
+  constructor(private storage: StorageFacadeService<string[]>) {}
 
   getTags(): string[] {
     return this.storage.getItem(this.PAD_MOCK_TAGS) || [];

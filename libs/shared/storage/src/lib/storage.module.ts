@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { BaseStorage } from './model/base.storage.model';
-import { DefaultCacheStorage } from './service/cache-storage.service';
-import { CoreStorage } from './service/core-storage';
-import { StorageService } from './service/storage.service';
+import { StorageFacadeService } from './service/storage-facade.service';
+import { DefaultCacheStorage } from './service/storage/cache-storage.service';
+import { InternalStorageService } from './service/storage/internal-storage.service';
 import { STRATEGY_STORAGE_TOKEN } from './token/strategy-storage.token';
 
 @NgModule({
@@ -17,14 +17,14 @@ export class StorageModule {
     return {
       ngModule: StorageModule,
       providers: [
-        CoreStorage,
+        InternalStorageService,
         DefaultCacheStorage,
-        StorageService,
+        StorageFacadeService,
         {
           provide: STRATEGY_STORAGE_TOKEN,
           multi: true,
           useValue: {
-            type: storage && window.sessionStorage
+            type: storage || window.sessionStorage,
           },
         },
       ],

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CoreStorage } from '@pad/shared/storage';
+import { StorageFacadeService } from '@pad/shared/storage';
 
 @Injectable({ providedIn: 'root' })
 export class MockActiveService {
   private PAD_ENABLE_KEY = 'pad_mockEnabled';
 
-  constructor(private storage: CoreStorage<boolean>) {
+  constructor(private storage: StorageFacadeService<boolean>) {
     window.enableMockApi = (value): void => {
       this.enable(value);
     };
