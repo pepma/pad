@@ -13,7 +13,7 @@ import { STRATEGY_STORAGE_TOKEN } from './token/strategy-storage.token';
   declarations: [],
 })
 export class StorageModule {
-  static forChild(key = 'pad_storage', storage?: Storage | BaseStorage<unknown>): ModuleWithProviders<StorageModule> {
+  static forChild(storage?: Storage | BaseStorage<unknown>): ModuleWithProviders<StorageModule> {
     return {
       ngModule: StorageModule,
       providers: [
@@ -24,8 +24,7 @@ export class StorageModule {
           provide: STRATEGY_STORAGE_TOKEN,
           multi: true,
           useValue: {
-            type: storage && window.sessionStorage,
-            storageKey: key,
+            type: storage && window.sessionStorage
           },
         },
       ],

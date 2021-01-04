@@ -1,35 +1,27 @@
 import { Injectable } from '@angular/core';
 
+import { TagsStateService } from '../state/tags-state.service';
+
 @Injectable({ providedIn: 'root' })
 export class TagsService {
-  get win(): Window {
-    return window;
+  get list(): string[] {
+    return this.tagsStateService.getTags();
   }
 
-  get listErrors(): string[] {
-    if (!this.win.listErrors) {
-      this.win.listErrors = [];
-    }
-    return this.win.listErrors;
+  constructor(private tagsStateService: TagsStateService) {
+    window.addError = (tagName: string): void => this.addTag(tagName);
+    window.removeError = (tagName: string): void => this.removeTag(tagName);
   }
 
-  set listErrors(list: string[]) {
-    this.win.listErrors = list;
-  }
-  private constructor() {
-    this.win.addError = (error: string): void => this.addError(error);
-    this.win.removeError = (error: string): void => this.removeError(error);
+  has(tagNAme: string): boolean {
+    return this.tagsStateService.getTags().includes(tagNAme);
   }
 
-  has(errorName: string): boolean {
-    return this.listErrors.includes(errorName);
+  removeTag(tagName: string): void {
+    this.tagsStateService.removeTag(tagName);
   }
 
-  removeError(errorName: string): void {
-    this.listErrors = this.listErrors.filter((f) => f != errorName);
-  }
-
-  addError(error: string): void {
-    this.listErrors.push(error);
+  addTag(tagName: string): void {
+    this.tagsStateService.setTag(tagName);
   }
 }

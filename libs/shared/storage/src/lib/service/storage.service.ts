@@ -1,19 +1,14 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { BaseStorage } from '../model/base.storage.model';
-import { StrategyStorage } from '../model/strategy-storage.model';
-import { STRATEGY_STORAGE_TOKEN } from '../token/strategy-storage.token';
 import { DefaultCacheStorage } from './cache-storage.service';
 import { CoreStorage } from './core-storage';
 
 @Injectable()
 export class StorageService<T> implements BaseStorage<T> {
   private readonly cache = new DefaultCacheStorage<T>();
-  private readonly storageKey: string;
 
-  constructor(@Inject(STRATEGY_STORAGE_TOKEN) strategy: StrategyStorage, private currentStorage: CoreStorage<T>) {
-    this.storageKey = strategy.storageKey;
-  }
+  constructor(private currentStorage: CoreStorage<T>) {}
 
   has(key: string): boolean {
     return this.cache.has(key) || this.currentStorage.has(key);
@@ -35,7 +30,7 @@ export class StorageService<T> implements BaseStorage<T> {
 
   setItem(key: string, data: T): void {
     this.cache.setItem(key, data);
-    this.currentStorage.setItem(this.storageKey, data);
+    this.currentStorage.setItem(key, data);
   }
 
   clear(): void {

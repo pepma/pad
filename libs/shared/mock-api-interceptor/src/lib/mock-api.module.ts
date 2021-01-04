@@ -4,12 +4,10 @@ import { NgModule } from '@angular/core';
 import { StorageModule } from '@pad/shared/storage';
 
 import { MockApiInterceptor } from './interceptor/mock-api.interceptor';
-import { MockApiFacadeService } from './service/mockapi-facade.service';
 import { RequestHandlerMockApiService } from './service/request-handler-mockapi.service';
 
 @NgModule({
   providers: [
-    MockApiFacadeService,
     RequestHandlerMockApiService,
     {
       provide: HTTP_INTERCEPTORS,
@@ -17,7 +15,7 @@ import { RequestHandlerMockApiService } from './service/request-handler-mockapi.
       multi: true,
     },
   ],
-  imports: [CommonModule, StorageModule.forChild('pad_mock_api_interceptor', window.sessionStorage)],
+  imports: [CommonModule, StorageModule.forChild(window.sessionStorage)],
   exports: [],
 })
 export class MockApiModule {}
