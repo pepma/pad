@@ -1,7 +1,9 @@
+import { Observable } from 'rxjs';
+
 export interface BaseStorage<T> {
-  has(key: string): boolean;
-  getItem(key: string): T;
-  clear(): void;
-  setItem(key: string, data: unknown): void;
-  removeItem(key?: string | RegExp): void;
+  has(key: string): Observable<boolean> | boolean;
+  getItem(key: string): Observable<T> | T;
+  clear(): Observable<void> | void;
+  setItem(key: string, data: T): Observable<void> | void;
+  removeItem(key?: string | RegExp): Observable<void> | void;
 }

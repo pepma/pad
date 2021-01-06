@@ -13,7 +13,7 @@ import { STRATEGY_STORAGE_TOKEN } from './token/strategy-storage.token';
   declarations: [],
 })
 export class StorageModule {
-  static forChild(storage?: Storage | BaseStorage<unknown>): ModuleWithProviders<StorageModule> {
+  static forChild<T>(storage?: Storage | BaseStorage<T>): ModuleWithProviders<StorageModule> {
     return {
       ngModule: StorageModule,
       providers: [

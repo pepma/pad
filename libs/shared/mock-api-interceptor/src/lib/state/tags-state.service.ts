@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StorageFacadeService } from '@pad/shared/storage';
+import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class TagsStateService {
@@ -7,21 +9,28 @@ export class TagsStateService {
 
   constructor(private storage: StorageFacadeService<string[]>) {}
 
-  getTags(): string[] {
-    return this.storage.getItem(this.PAD_MOCK_TAGS) || [];
+  getTags(): Observable<string[]> {
+    return this.storage.getItem(this.PAD_MOCK_TAGS).pipe(map((value) => value || []));
   }
 
   setTag(tagName: string): void {
-    const list = this.getTags();
-    list.push(tagName);
-    this.storage.setItem(this.PAD_MOCK_TAGS, list);
+    this.getTags()
+      .pipe(
+        map((list) => {
+          list.push(tagName);
+          return list;
+        }),
+        switchMap((list) => this.storage.setItem(this.PAD_MOCK_TAGS, list))
+      )
+      .subscribe();
   }
 
   removeTag(tagName: string): void {
-    const list = this.getTags();
-    this.storage.setItem(
-      this.PAD_MOCK_TAGS,
-      list.filter((f) => f != tagName)
-    );
+    this.getTags()
+      .pipe(
+        map((list) => list.filter((f) => f != tagName)),
+        switchMap((list) => this.storage.setItem(this.PAD_MOCK_TAGS, list))
+      )
+      .subscribe();
   }
 }

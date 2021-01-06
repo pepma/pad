@@ -14,8 +14,8 @@ export interface HashMapMockPattern {
 
 declare global {
   export interface Window {
-    removeError(error: string): void;
-    addError(error: string): void;
+    removeTag(error: string): void;
+    addTag(error: string): void;
     listErrors: string[];
     enableMockApi(value: boolean): void;
   }

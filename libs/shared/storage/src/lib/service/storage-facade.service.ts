@@ -1,43 +1,51 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
-import { BaseStorage } from '../model/base.storage.model';
 import { DefaultCacheStorage } from './storage/cache-storage.service';
 import { InternalStorageService } from './storage/internal-storage.service';
 
 @Injectable()
-export class StorageFacadeService<T> implements BaseStorage<T> {
+export class StorageFacadeService<T> {
   private readonly cache = new DefaultCacheStorage<T>();
 
   constructor(private internalStorageService: InternalStorageService<T>) {}
 
-  has(key: string): boolean {
-    return this.cache.has(key) || this.internalStorageService.has(key);
-  }
-
-  getItem(key: string): T {
-    let cacheValue = this.cache.getItem(key);
-    if (!cacheValue) {
-      const value = this.internalStorageService.getItem(key);
-      if (value) {
-        this.cache.setItem(key, value);
-      }
-      cacheValue = this.cache.getItem(key);
+  has(key: string): Observable<boolean> {
+    const valueCached = this.cache.has(key); // || this.internalStorageService.has(key);
+    if (valueCached) {
+      return of(valueCached);
+    } else {
+      return this.internalStorageService.has(key);
     }
-    return cacheValue;
   }
 
-  setItem(key: string, data: T): void {
+  getItem(key: string): Observable<T> {
+    const cacheValue = this.cache.getItem(key);
+    if (!cacheValue) {
+      return this.internalStorageService.getItem(key).pipe(
+        tap((value) => {
+          if (value) {
+            this.cache.setItem(key, value);
+          }
+        })
+      );
+    }
+    return of(cacheValue);
+  }
+
+  setItem(key: string, data: T): Observable<void> {
     this.cache.setItem(key, data);
-    this.internalStorageService.setItem(key, data);
+    return this.internalStorageService.setItem(key, data);
   }
 
-  clear(): void {
+  clear(): Observable<void> {
     this.cache.clear();
-    this.internalStorageService.clear();
+    return this.internalStorageService.clear();
   }
 
-  removeItem(key?: string): void {
+  removeItem(key?: string): Observable<void> {
     this.cache.removeItem(key);
-    this.internalStorageService.removeItem(key);
+    return this.internalStorageService.removeItem(key);
   }
 }
