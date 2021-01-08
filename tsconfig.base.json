@@ -10,14 +10,27 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pad/mock-api-interceptor": ["libs/shared/mock-api-interceptor/src/index.ts"],
-      "@pad/shared/storage": ["libs/shared/storage/src/index.ts"]
+      "@test/*": [
+        "test/*"
+      ],
+      "@pad/mock-api-interceptor": [
+        "libs/shared/mock-api-interceptor/src/index.ts"
+      ],
+      "@pad/shared/storage": [
+        "libs/shared/storage/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageFacadeService } from '@pad/shared/storage';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MockActiveService {
@@ -11,7 +12,7 @@ export class MockActiveService {
     };
   }
 
-  get isEnabled(): boolean {
+  get isEnabled$(): Observable<boolean> {
     return this.storage.getItem(this.PAD_ENABLE_KEY);
   }
 

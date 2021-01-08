@@ -12,7 +12,7 @@ export class StorageFacadeService<T> {
   constructor(private internalStorageService: InternalStorageService<T>) {}
 
   has(key: string): Observable<boolean> {
-    const valueCached = this.cache.has(key); // || this.internalStorageService.has(key);
+    const valueCached = this.cache.has(key);
     if (valueCached) {
       return of(valueCached);
     } else {
