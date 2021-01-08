@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { DefaultCacheStorage } from './storage/cache-storage.service';
+import { CacheStorageService } from './storage/cache-storage.service';
 import { InternalStorageService } from './storage/internal-storage.service';
 
 @Injectable()
 export class StorageFacadeService<T> {
-  private readonly cache = new DefaultCacheStorage<T>();
+  private readonly cache = new CacheStorageService<T>();
 
   constructor(private internalStorageService: InternalStorageService<T>) {}
 

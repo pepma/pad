@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BaseStorage } from '../../model/base.storage.model';
 
 @Injectable()
-export class DefaultCacheStorage<T> implements BaseStorage<T> {
+export class CacheStorageService<T> implements BaseStorage<T> {
   private cache = new Map<string, T>();
 
   has(key: string): boolean {
