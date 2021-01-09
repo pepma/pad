@@ -1,1 +1,2 @@
-export * from './lib/apod-ui-apod-list';
+export { ApodListModule } from './lib/apod-list.module';
+export { ApodListComponent } from './lib/apod-list/apod-list.component';

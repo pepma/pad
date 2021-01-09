@@ -1,0 +1,13 @@
+<div class="detail">
+  <p>
+    <button aria-label="Return" (click)="clickBack()">Return</button>
+  </p>
+  <mat-divider></mat-divider>
+  <ng-container *ngIf="item$ | async; else noData">
+    <app-card-apod-detail mode="detail" [info]="item$ | async"></app-card-apod-detail>
+  </ng-container>
+
+  <ng-template #noData>
+    <p>To check the day visit previously: <a href="#" (click)="clickBack()">APOD page</a></p>
+  </ng-template>
+</div>

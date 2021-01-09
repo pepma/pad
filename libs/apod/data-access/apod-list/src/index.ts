@@ -1,1 +1,1 @@
-export * from './lib/apod-data-access-apod-list';
+export * from './lib';
