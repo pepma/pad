@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-apod-detail',
+  selector: 'pad-apod-detail',
   templateUrl: './apod-detail.component.html',
   styleUrls: ['./apod-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

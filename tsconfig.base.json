@@ -20,7 +20,8 @@
       "@pad/apod/data-access/apod-list": ["libs/apod/data-access/apod-list/src/index.ts"],
       "@pad/apod/ui/apod-list": ["libs/apod/ui/apod-list/src/index.ts"],
       "@pad/apod/ui/apod-detail": ["libs/apod/ui/apod-detail/src/index.ts"],
-      "@test/*": ["test/*"]
+      "@test/*": ["test/*"],
+      "@pad/apod/ui/apod-card": ["libs/apod/ui/apod-card/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

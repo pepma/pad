@@ -229,6 +229,27 @@
           }
         }
       }
+    },
+    "apod-ui-apod-card": {
+      "root": "libs/apod/ui/apod-card",
+      "sourceRoot": "libs/apod/ui/apod-card/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/apod-card/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/apod-card"],
+          "options": {
+            "jestConfig": "libs/apod/ui/apod-card/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -1,0 +1,12 @@
+<mat-card (click)="clickDetail()" class="detail">
+  <mat-card-header class="detail__header">
+    <mat-card-title *ngIf="isPreviewMode">
+      <span class="detail__header--title">{{ info?.date }}</span></mat-card-title
+    >
+  </mat-card-header>
+  <img class="detail__image" mat-card-image src="{{ info?.url }}" alt="{{ info?.title }}" />
+  <mat-card-content class="detail__content'" [class]="{ 'detail__content--explanation': !isPreviewMode }">
+    <span *ngIf="isPreviewMode">{{ info?.title }}</span>
+    <span *ngIf="!isPreviewMode">{{ info?.explanation }}</span>
+  </mat-card-content>
+</mat-card>

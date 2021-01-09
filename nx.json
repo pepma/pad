@@ -44,6 +44,9 @@
     },
     "apod-ui-apod-detail": {
       "tags": ["scope:apod", "type:feature"]
+    },
+    "apod-ui-apod-card": {
+      "tags": ["scope:apod", "type:feature"]
     }
   }
 }

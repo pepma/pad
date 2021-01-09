@@ -1,0 +1,42 @@
+{
+  // Global Editor Format
+  "editor.formatOnSave": false,
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 180,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": "selection",
+  // HTML Format
+  "html.format.indentHandlebars": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.wrapLineLength": 0,
+  "html.format.wrapAttributes": "auto",
+  "html.format.contentUnformatted": "pre, code, textarea",
+  "html.format.extraLiners": "head, body, /html, a, abbr, acronym, address, applet, area, article, aside, audio, b, base, basefont, bb, bdo, big, blockquote, body, br, button, canvas, caption, center, cite, code, col, colgroup, command, datagrid, datalist, dd, del, details, dfn, dialog, dir, div, dl, dt, em, embed, eventsource, fieldset, figcaption, figure, font, footer, form, frame, frameset, h1, to h6, head, header, hgroup, hr /, html, i, iframe, img, input, ins, isindex, kbd, keygen, label, legend, li, link, map, mark, menu, meta, meter, nav, noframes, noscript, object, ol, optgroup, option, output, p, param, pre, progress, q, rp, rt, ruby, s, samp, script, section, select, small, source, span, strike, strong, style, sub, sup, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, track, tt, u, ul, var, video, wbr, /a, /abbr, /acronym, /address, /applet, /area, /article, /aside, /audio, /b, /base, /basefont, /bb, /bdo, /big, /blockquote, /body, /br, /button, /canvas, /caption, /center, /cite, /code, /col, /colgroup, /command, /datagrid, /datalist, /dd, /del, /details, /dfn, /dialog, /dir, /div, /dl, /dt, /em, /embed, /eventsource, /fieldset, /figcaption, /figure, /font, /footer, /form, /frame, /frameset, /h1, to /h6, /head, /header, /hgroup, /hr /, /html, /i, /iframe, /img, /input, /ins, /isindex, /kbd, /keygen, /label, /legend, /li, /link, /map, /mark, /menu, /meta, /meter, /nav, /noframes, /noscript, /object, /ol, /optgroup, /option, /output, /p, /param, /pre, /progress, /q, /rp, /rt, /ruby, /s, /samp, /script, /section, /select, /small, /source, /span, /strike, /strong, /style, /sub, /sup, /table, /tbody, /td, /textarea, /tfoot, /th, /thead, /time, /title, /tr, /track, /tt, /u, /ul, /var, /video, /wbr",
+  // Editor Format by file
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+  },
+  "editor.codeActionsOnSave": {
+		// For ESLint
+    "source.fixAll.eslint": true,
+    // For TSLint
+    "source.fixAll.tslint": true,
+    // For Stylelint
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.enable": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false
+
+}

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { Apod } from '@pad/apod/data-access/apod-list';
 
 @Component({
-  selector: 'app-apod-list',
+  selector: 'pad-apod-list',
   templateUrl: './apod-list.component.html',
   styleUrls: ['./apod-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
