@@ -1,0 +1,11 @@
+@import 'src/theme/variables';
+.title{
+  text-align: center;
+  @include mat-typography-level-to-styles($app-typography, headline);
+  text-transform: uppercase;
+}
+.subtitle{
+  color: $color-light;
+  text-align: center;
+  @include mat-typography-level-to-styles($app-typography, body-1);
+}

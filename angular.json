@@ -250,6 +250,27 @@
           }
         }
       }
+    },
+    "apod-ui-apod-header": {
+      "root": "libs/apod/ui/apod-header",
+      "sourceRoot": "libs/apod/ui/apod-header/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/apod-header/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/apod-header"],
+          "options": {
+            "jestConfig": "libs/apod/ui/apod-header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

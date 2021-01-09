@@ -21,7 +21,8 @@
       "@pad/apod/ui/apod-list": ["libs/apod/ui/apod-list/src/index.ts"],
       "@pad/apod/ui/apod-detail": ["libs/apod/ui/apod-detail/src/index.ts"],
       "@test/*": ["test/*"],
-      "@pad/apod/ui/apod-card": ["libs/apod/ui/apod-card/src/index.ts"]
+      "@pad/apod/ui/apod-card": ["libs/apod/ui/apod-card/src/index.ts"],
+      "@pad/apod/ui/apod-header": ["libs/apod/ui/apod-header/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

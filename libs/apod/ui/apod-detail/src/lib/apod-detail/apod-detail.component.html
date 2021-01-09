@@ -4,7 +4,7 @@
   </p>
   <mat-divider></mat-divider>
   <ng-container *ngIf="item$ | async; else noData">
-    <app-card-apod-detail mode="detail" [info]="item$ | async"></app-card-apod-detail>
+    <pad-apod-card mode="detail" [info]="item$ | async"></pad-apod-card>
   </ng-container>
 
   <ng-template #noData>

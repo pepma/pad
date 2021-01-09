@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/libs/apod/ui/apod-list',
     '<rootDir>/libs/apod/ui/apod-detail',
     '<rootDir>/libs/apod/ui/apod-card',
+    '<rootDir>/libs/apod/ui/apod-header',
   ],
 };

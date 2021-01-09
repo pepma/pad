@@ -1,12 +1,12 @@
 <div fxLayout="row no-wrap" fxLayoutAlign="space-around space-around">
   <ng-container *ngFor="let item of list">
-    <app-card-apod-detail
+    <pad-apod-card
       class="detail"
       (select)="onSelectApod($event)"
       [fxFlex]="33.33"
       [fxFlex.sm]="50"
       [fxFlex.xs]="100"
       [info]="item"
-    ></app-card-apod-detail>
+    ></pad-apod-card>
   </ng-container>
 </div>
