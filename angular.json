@@ -166,6 +166,69 @@
           }
         }
       }
+    },
+    "apod-data-access-apod-list": {
+      "root": "libs/apod/data-access/apod-list",
+      "sourceRoot": "libs/apod/data-access/apod-list/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/data-access/apod-list/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/data-access/apod-list"],
+          "options": {
+            "jestConfig": "libs/apod/data-access/apod-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-apod-list": {
+      "root": "libs/apod/ui/apod-list",
+      "sourceRoot": "libs/apod/ui/apod-list/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/apod-list/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/apod-list"],
+          "options": {
+            "jestConfig": "libs/apod/ui/apod-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-apod-detail": {
+      "root": "libs/apod/ui/apod-detail",
+      "sourceRoot": "libs/apod/ui/apod-detail/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/apod-detail/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/apod-detail"],
+          "options": {
+            "jestConfig": "libs/apod/ui/apod-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

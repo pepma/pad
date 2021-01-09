@@ -35,6 +35,15 @@
     },
     "shared-storage": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "apod-data-access-apod-list": {
+      "tags": ["scope:apod", "type:feature"]
+    },
+    "apod-ui-apod-list": {
+      "tags": ["scope:apod", "type:feature"]
+    },
+    "apod-ui-apod-detail": {
+      "tags": ["scope:apod", "type:feature"]
     }
   }
 }
