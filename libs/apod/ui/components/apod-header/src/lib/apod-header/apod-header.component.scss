@@ -1,4 +1,4 @@
-@import 'src/theme/variables';
+@import 'variables';
 .title{
   text-align: center;
   @include mat-typography-level-to-styles($app-typography, headline);

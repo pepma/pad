@@ -1,0 +1,22 @@
+@import 'material/theming';
+@import 'palette';
+
+$app-typography: mat-typography-config(
+  $font-family: 'Helvetica Neue,Helvetica,Roboto,Arial,sans-serif',
+  $headline: mat-typography-level(22px, 32px, 900),
+  $body-1: mat-typography-level(16px, 24px, 100),
+  $body-2: mat-typography-level(16px, 24px, 900),
+  $button: mat-typography-level(16px, 24px, 900),
+  $caption: mat-typography-level(12px, 18px, 100),
+  $input: mat-typography-level(inherit, 1.125, 900)
+);
+
+@include mat-core($app-typography);
+
+$apod-primary: mat-palette($mat-black);
+$apod-accent: mat-palette($mat-blue, 500);
+$apod-warn: mat-palette($mat-red);
+
+$apod-theme: mat-light-theme($apod-primary, $apod-accent, $apod-warn);
+
+@include angular-material-theme($apod-theme);

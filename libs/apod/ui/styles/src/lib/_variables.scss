@@ -1,0 +1,6 @@
+@import 'material/config';
+
+$background-color:mat-color($apod-primary);
+$color-text-contrast: mat-contrast($apod-primary, 500);
+$color-light: mat-color($apod-primary, A100);
+

@@ -53,6 +53,9 @@
     },
     "apod-ui-pages-default-layout": {
       "tags": ["scope:apod", "type:feature"]
+    },
+    "apod-ui-styles": {
+      "tags": ["scope:apod", "type:feature"]
     }
   }
 }
