@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Apod } from '@pad/apod/data-access/apod-list';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { Apod, ApodFacadeService } from '@pad/apod/data-access/apod-list';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pad-apod-list',
@@ -8,8 +9,12 @@ import { Apod } from '@pad/apod/data-access/apod-list';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ApodListComponent {
-  @Input() list: Apod[];
+  list$: Observable<Apod[]>;
   @Output() select = new EventEmitter<Apod>();
+
+  constructor(apodFacadeService: ApodFacadeService) {
+    this.list$ = apodFacadeService.list$;
+  }
 
   onSelectApod(item: Apod): void {
     this.select.emit(item);

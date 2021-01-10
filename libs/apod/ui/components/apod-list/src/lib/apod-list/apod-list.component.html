@@ -1,5 +1,5 @@
 <div fxLayout="row no-wrap" fxLayoutAlign="space-around space-around">
-  <ng-container *ngFor="let item of list">
+  <ng-container *ngFor="let item of list$ | async">
     <pad-apod-card
       class="detail"
       (select)="onSelectApod($event)"

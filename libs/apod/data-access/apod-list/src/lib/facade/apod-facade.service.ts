@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-
-import { ApodDTO } from '../model/apod.model';
+import { Apod } from '../model/apod.model';
 import { ApodService } from '../services/apod.service';
 import { ApodStateService } from '../state/apod-state.service';
 
 @Injectable({ providedIn: 'root' })
 export class ApodFacadeService {
-  get list$(): Observable<ApodDTO[]> {
+  get list$(): Observable<Apod[]> {
     return this.apodStateService.list$;
   }
 

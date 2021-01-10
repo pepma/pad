@@ -3,14 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'apod',
-    loadChildren: () => import('@pad/apod/ui/pages/default-layout').then((m) => m.DefaultLayoutModule),
-  },
-  {
     path: '',
-    redirectTo: '/apod',
+    loadChildren: () => import('@pad/apod/ui/pages/default-layout').then((m) => m.DefaultLayoutModule),
     pathMatch: 'full',
   },
+  // {
+  //   path: '',
+  //   redirectTo: '/apod',
+  //   pathMatch: 'full',
+  // },
   // {
   //   path: '**',
   //   component: NotFoundComponent,

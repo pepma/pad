@@ -24,7 +24,7 @@
   },
   "projects": {
     "apod": {
-      "tags": []
+      "tags": ["scope:apod", "type:app"]
     },
     "apod-e2e": {
       "tags": [],
