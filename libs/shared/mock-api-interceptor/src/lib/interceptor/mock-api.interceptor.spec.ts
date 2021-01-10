@@ -1,6 +1,6 @@
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 import { createServiceFactory, SpectatorService } from '@ngneat/spectator';
-import { mockProperty } from '@test/utils-test';
+import { mockProperty } from '@test/test-utils';
 import { Observable, of } from 'rxjs';
 import { RequestHandlerMockApiService } from '../service/request-handler-mockapi.service';
 import { ACTIVE_TOKEN } from '../token/mock-active.token';

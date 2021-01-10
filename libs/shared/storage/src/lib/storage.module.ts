@@ -3,7 +3,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { BaseStorage } from './model/base.storage.model';
 import { StorageFacadeService } from './service/storage-facade.service';
-import { DefaultCacheStorage } from './service/storage/cache-storage.service';
+import { CacheStorageService } from './service/storage/cache-storage.service';
 import { InternalStorageService } from './service/storage/internal-storage.service';
 import { STRATEGY_STORAGE_TOKEN } from './token/strategy-storage.token';
 
@@ -18,7 +18,7 @@ export class StorageModule {
       ngModule: StorageModule,
       providers: [
         InternalStorageService,
-        DefaultCacheStorage,
+        CacheStorageService,
         StorageFacadeService,
         {
           provide: STRATEGY_STORAGE_TOKEN,

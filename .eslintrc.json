@@ -13,11 +13,19 @@
             "depConstraints": [
               {
                 "sourceTag": "scope:apod",
-                "onlyDependOnLibsWithTags": ["scope:apod", "scope:shared"]
+                "onlyDependOnLibsWithTags": ["scope:apod", "scope:shared","scope:core"]
               },
               {
                 "sourceTag": "scope:shared",
                 "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
+                "sourceTag": "scope:core",
+                "onlyDependOnLibsWithTags": ["scope:core"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["type:feature","type:util"]
               },
               {
                 "sourceTag": "type:util",
