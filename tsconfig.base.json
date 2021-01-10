@@ -25,6 +25,7 @@
       "@pad/apod/ui/components/apod-header": ["libs/apod/ui/components/apod-header/src/index.ts"],
       "@pad/apod/ui/pages/default-layout": ["libs/apod/ui/pages/default-layout/src/index.ts"],
       "@pad/shared/core/*": ["libs/shared/core/src/lib/*"],
+      "@pad/apod/ui/styles/*": ["libs/apod/ui/styles/src/lib/*"],
       "@pad/apod/core": ["libs/apod/core/src/index.ts"]
     }
   },

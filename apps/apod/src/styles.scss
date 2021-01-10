@@ -1,1 +1,5 @@
 @import 'common';
+router-outlet ~ * {
+  position: absolute;
+  width: 100%;
+}

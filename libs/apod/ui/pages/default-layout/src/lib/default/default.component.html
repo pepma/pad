@@ -2,4 +2,6 @@
   <pad-apod-header></pad-apod-header>
 </header>
 
-<router-outlet></router-outlet>
+<div [@routerTransition]="o.isActivated && o.activatedRoute">
+  <router-outlet #o="outlet"></router-outlet>
+</div>
