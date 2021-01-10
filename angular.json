@@ -16,13 +16,8 @@
             "polyfills": "apps/apod/src/polyfills.ts",
             "tsConfig": "apps/apod/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/apod/src/favicon.ico",
-              "apps/apod/src/assets"
-            ],
-            "styles": [
-              "apps/apod/src/styles.scss"
-            ],
+            "assets": ["apps/apod/src/favicon.ico", "apps/apod/src/assets"],
+            "styles": ["apps/apod/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -75,17 +70,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/apod/src/**/*.ts",
-              "apps/apod/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/apod/src/**/*.ts", "apps/apod/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/apod"
-          ],
+          "outputs": ["coverage/apps/apod"],
           "options": {
             "jestConfig": "apps/apod/jest.config.js",
             "passWithNoTests": true
@@ -114,9 +104,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/apod-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/apod-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -150,9 +138,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/mock-api-interceptor"
-          ],
+          "outputs": ["coverage/libs/shared/mock-api-interceptor"],
           "options": {
             "jestConfig": "libs/shared/mock-api-interceptor/jest.config.js",
             "passWithNoTests": true
@@ -168,16 +154,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/shared/storage/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/shared/storage/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/storage"
-          ],
+          "outputs": ["coverage/libs/shared/storage"],
           "options": {
             "jestConfig": "libs/shared/storage/jest.config.js",
             "passWithNoTests": true
@@ -193,16 +175,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/apod/data-access/apod-list/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/apod/data-access/apod-list/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/apod/data-access/apod-list"
-          ],
+          "outputs": ["coverage/libs/apod/data-access/apod-list"],
           "options": {
             "jestConfig": "libs/apod/data-access/apod-list/jest.config.js",
             "passWithNoTests": true
@@ -218,16 +196,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/apod/ui/components/apod-card/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/apod/ui/components/apod-card/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/apod/ui/components/apod-card"
-          ],
+          "outputs": ["coverage/libs/apod/ui/components/apod-card"],
           "options": {
             "jestConfig": "libs/apod/ui/components/apod-card/jest.config.js",
             "passWithNoTests": true
@@ -243,16 +217,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/apod/ui/components/apod-detail/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/apod/ui/components/apod-detail/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/apod/ui/components/apod-detail"
-          ],
+          "outputs": ["coverage/libs/apod/ui/components/apod-detail"],
           "options": {
             "jestConfig": "libs/apod/ui/components/apod-detail/jest.config.js",
             "passWithNoTests": true
@@ -268,16 +238,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/apod/ui/components/apod-list/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/apod/ui/components/apod-list/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/apod/ui/components/apod-list"
-          ],
+          "outputs": ["coverage/libs/apod/ui/components/apod-list"],
           "options": {
             "jestConfig": "libs/apod/ui/components/apod-list/jest.config.js",
             "passWithNoTests": true
@@ -293,18 +259,35 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/apod/ui/components/apod-header/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/apod/ui/components/apod-header/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/apod/ui/components/apod-header"
-          ],
+          "outputs": ["coverage/libs/apod/ui/components/apod-header"],
           "options": {
             "jestConfig": "libs/apod/ui/components/apod-header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-pages-default-layout": {
+      "root": "libs/apod/ui/pages/default-layout",
+      "sourceRoot": "libs/apod/ui/pages/default-layout/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/pages/default-layout/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/pages/default-layout"],
+          "options": {
+            "jestConfig": "libs/apod/ui/pages/default-layout/jest.config.js",
             "passWithNoTests": true
           }
         }

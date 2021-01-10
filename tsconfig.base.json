@@ -10,42 +10,21 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pad/mock-api-interceptor": [
-        "libs/shared/mock-api-interceptor/src/index.ts"
-      ],
-      "@pad/shared/storage": [
-        "libs/shared/storage/src/index.ts"
-      ],
-      "@pad/apod/data-access/apod-list": [
-        "libs/apod/data-access/apod-list/src/index.ts"
-      ],
-      "@test/*": [
-        "test/*"
-      ],
-      "@pad/apod/ui/components/apod-card": [
-        "libs/apod/ui/components/apod-card/src/index.ts"
-      ],
-      "@pad/apod/ui/components/apod-detail": [
-        "libs/apod/ui/components/apod-detail/src/index.ts"
-      ],
-      "@pad/apod/ui/components/apod-list": [
-        "libs/apod/ui/components/apod-list/src/index.ts"
-      ],
-      "@pad/apod/ui/components/apod-header": [
-        "libs/apod/ui/components/apod-header/src/index.ts"
-      ]
+      "@pad/mock-api-interceptor": ["libs/shared/mock-api-interceptor/src/index.ts"],
+      "@pad/shared/storage": ["libs/shared/storage/src/index.ts"],
+      "@pad/apod/data-access/apod-list": ["libs/apod/data-access/apod-list/src/index.ts"],
+      "@test/*": ["test/*"],
+      "@pad/apod/ui/components/apod-card": ["libs/apod/ui/components/apod-card/src/index.ts"],
+      "@pad/apod/ui/components/apod-detail": ["libs/apod/ui/components/apod-detail/src/index.ts"],
+      "@pad/apod/ui/components/apod-list": ["libs/apod/ui/components/apod-list/src/index.ts"],
+      "@pad/apod/ui/components/apod-header": ["libs/apod/ui/components/apod-header/src/index.ts"],
+      "@pad/apod/ui/pages/default-layout": ["libs/apod/ui/pages/default-layout/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

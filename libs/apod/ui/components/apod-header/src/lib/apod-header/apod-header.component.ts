@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'apod-header',
+  selector: 'pad-apod-header',
   templateUrl: './apod-header.component.html',
   styleUrls: ['./apod-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

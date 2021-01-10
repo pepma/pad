@@ -18,12 +18,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -33,51 +28,31 @@
     },
     "apod-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "apod"
-      ]
+      "implicitDependencies": ["apod"]
     },
     "shared-mock-api-interceptor": {
-      "tags": [
-        "scope:shared",
-        "type:util"
-      ]
+      "tags": ["scope:shared", "type:util"]
     },
     "shared-storage": {
-      "tags": [
-        "scope:shared",
-        "type:util"
-      ]
+      "tags": ["scope:shared", "type:util"]
     },
     "apod-data-access-apod-list": {
-      "tags": [
-        "scope:apod",
-        "type:feature"
-      ]
+      "tags": ["scope:apod", "type:feature"]
     },
     "apod-ui-components-apod-card": {
-      "tags": [
-        "scope:apod",
-        "type:feature"
-      ]
+      "tags": ["scope:apod", "type:feature"]
     },
     "apod-ui-components-apod-detail": {
-      "tags": [
-        "scope:apod",
-        "type:feature"
-      ]
+      "tags": ["scope:apod", "type:feature"]
     },
     "apod-ui-components-apod-list": {
-      "tags": [
-        "scope:apod",
-        "type:feature"
-      ]
+      "tags": ["scope:apod", "type:feature"]
     },
     "apod-ui-components-apod-header": {
-      "tags": [
-        "scope:apod",
-        "type:feature"
-      ]
+      "tags": ["scope:apod", "type:feature"]
+    },
+    "apod-ui-pages-default-layout": {
+      "tags": ["scope:apod", "type:feature"]
     }
   }
 }
