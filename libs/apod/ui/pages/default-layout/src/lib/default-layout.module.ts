@@ -5,7 +5,7 @@ import { DefaultLayoutRoutingModule } from './default-layout-routing.module';
 import { DefaultComponent } from './default/default.component';
 @NgModule({
   imports: [CommonModule, DefaultLayoutRoutingModule, ApodHeaderModule],
-  exports: [DefaultComponent],
+  exports: [DefaultComponent, DefaultLayoutRoutingModule],
   declarations: [DefaultComponent],
 })
 export class DefaultLayoutModule {}

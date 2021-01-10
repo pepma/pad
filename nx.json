@@ -56,6 +56,12 @@
     },
     "apod-ui-styles": {
       "tags": ["scope:apod", "type:feature"]
+    },
+    "shared-core": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "apod-core": {
+      "tags": ["scope:apod", "type:util"]
     }
   }
 }

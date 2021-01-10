@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EventType } from '@pad/apod/core';
 import { Apod, ApodFacadeService } from '@pad/apod/data-access/apod-list';
+import { EventBusService } from '@pad/shared/core/bus';
 
 @Component({
   selector: 'pad-apod-default',
@@ -10,15 +12,18 @@ import { Apod, ApodFacadeService } from '@pad/apod/data-access/apod-list';
 })
 export class DefaultComponent implements OnInit {
   daysToShow: number;
-  constructor(private apodFacadeService: ApodFacadeService, private router: Router) {
+  constructor(
+    private apodFacadeService: ApodFacadeService,
+    private router: Router,
+    private eventBusService: EventBusService
+  ) {
     this.daysToShow = 5;
   }
 
   ngOnInit(): void {
     this.apodFacadeService.getAll(new Date(), 6);
-  }
 
-  onSelectApod(item: Apod): void {
-    this.router.navigate([`apod/${item.date}`]);
+    this.eventBusService.on(EventType.CLOSE_DETAIL, () => this.router.navigate(['/']));
+    this.eventBusService.on(EventType.SELECTED_ITEM, (item: Apod) => this.router.navigate([`${item.date}`]));
   }
 }

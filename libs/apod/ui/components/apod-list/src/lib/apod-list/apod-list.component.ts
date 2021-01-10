@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { EventType } from '@pad/apod/core';
 import { Apod, ApodFacadeService } from '@pad/apod/data-access/apod-list';
+import { EventBusService } from '@pad/shared/core/bus';
 import { Observable } from 'rxjs';
-
 @Component({
   selector: 'pad-apod-list',
   templateUrl: './apod-list.component.html',
@@ -10,13 +11,12 @@ import { Observable } from 'rxjs';
 })
 export class ApodListComponent {
   list$: Observable<Apod[]>;
-  @Output() select = new EventEmitter<Apod>();
 
-  constructor(apodFacadeService: ApodFacadeService) {
+  constructor(apodFacadeService: ApodFacadeService, private eventBusService: EventBusService) {
     this.list$ = apodFacadeService.list$;
   }
 
   onSelectApod(item: Apod): void {
-    this.select.emit(item);
+    this.eventBusService.emit(EventType.SELECTED_ITEM, item);
   }
 }

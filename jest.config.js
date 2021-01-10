@@ -9,5 +9,7 @@ module.exports = {
     '<rootDir>/libs/apod/ui/apod-card',
     '<rootDir>/libs/apod/ui/apod-header',
     '<rootDir>/libs/apod/ui/pages/default-layout',
+    '<rootDir>/libs/shared/core',
+    '<rootDir>/libs/apod/core',
   ],
 };

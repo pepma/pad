@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EventType } from '@pad/apod/core';
 import { Apod, ApodFacadeService } from '@pad/apod/data-access/apod-list';
+import { EventBusService } from '@pad/shared/core/bus';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 @Component({
   selector: 'pad-apod-detail',
   templateUrl: './apod-detail.component.html',
@@ -13,10 +14,14 @@ import { map } from 'rxjs/operators';
 export class ApodDetailComponent implements OnInit {
   item$: Observable<Apod>;
 
-  constructor(private activatedRoute: ActivatedRoute, private apodFacadeService: ApodFacadeService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private eventBusService: EventBusService,
+    private apodFacadeService: ApodFacadeService
+  ) {}
 
   clickBack(): void {
-    //this.router.navigate(['/apod']);
+    this.eventBusService.emit(EventType.CLOSE_DETAIL);
   }
 
   ngOnInit(): void {

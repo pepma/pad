@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ApodDTO } from '../model/apod.model';
 import { APOD_CONFIG_TOKEN } from '../token/apod.token';
+import { ApodDTOAdapter } from './adapter/adapters/apod-dto.adapter';
 import { ApodApiService } from './apod-api.service';
 
 describe('ApodApiService', () => {
@@ -13,6 +14,7 @@ describe('ApodApiService', () => {
     TestBed.configureTestingModule({
       providers: [
         ApodApiService,
+        ApodDTOAdapter,
         {
           provide: APOD_CONFIG_TOKEN,
           useValue: {

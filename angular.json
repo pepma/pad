@@ -1,387 +1,382 @@
 {
-    "version": 1,
-    "projects": {
-        "apod": {
-            "projectType": "application",
-            "root": "apps/apod",
-            "sourceRoot": "apps/apod/src",
-            "prefix": "pad",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist/apps/apod",
-                        "index": "apps/apod/src/index.html",
-                        "main": "apps/apod/src/main.ts",
-                        "polyfills": "apps/apod/src/polyfills.ts",
-                        "tsConfig": "apps/apod/tsconfig.app.json",
-                        "aot": true,
-                        "assets": [
-                            "apps/apod/src/favicon.ico",
-                            "apps/apod/src/assets"
-                        ],
-                        "stylePreprocessorOptions": {
-                            "includePaths": [
-                                "node_modules/@angular",
-                                "libs/apod/ui/styles/src/lib"
-                            ]
-                        },
-                        "styles": [
-                            "apps/apod/src/styles.scss"
-                        ],
-                        "scripts": []
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "apps/apod/src/environments/environment.ts",
-                                    "with": "apps/apod/src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "apod:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "apod:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "apod:build"
-                    }
-                },
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "apps/apod/src/**/*.ts",
-                            "apps/apod/src/**/*.html"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/apps/apod"
-                    ],
-                    "options": {
-                        "jestConfig": "apps/apod/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "apod-e2e": {
-            "root": "apps/apod-e2e",
-            "sourceRoot": "apps/apod-e2e/src",
-            "projectType": "application",
-            "architect": {
-                "e2e": {
-                    "builder": "@nrwl/cypress:cypress",
-                    "options": {
-                        "cypressConfig": "apps/apod-e2e/cypress.json",
-                        "tsConfig": "apps/apod-e2e/tsconfig.e2e.json",
-                        "devServerTarget": "apod:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "apod:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "apps/apod-e2e/**/*.{js,ts}"
-                        ]
-                    }
-                }
-            }
-        },
-        "shared-mock-api-interceptor": {
-            "projectType": "library",
-            "root": "libs/shared/mock-api-interceptor",
-            "sourceRoot": "libs/shared/mock-api-interceptor/src",
-            "prefix": "pad",
-            "architect": {
-                "build": {
-                    "builder": "@nrwl/angular:package",
-                    "options": {
-                        "tsConfig": "libs/shared/mock-api-interceptor/tsconfig.lib.json",
-                        "project": "libs/shared/mock-api-interceptor/ng-package.json"
-                    },
-                    "configurations": {
-                        "production": {
-                            "tsConfig": "libs/shared/mock-api-interceptor/tsconfig.lib.prod.json"
-                        }
-                    }
-                },
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/shared/mock-api-interceptor/src/**/*.ts",
-                            "libs/shared/mock-api-interceptor/src/**/*.html"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/shared/mock-api-interceptor"
-                    ],
-                    "options": {
-                        "jestConfig": "libs/shared/mock-api-interceptor/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "shared-storage": {
-            "root": "libs/shared/storage",
-            "sourceRoot": "libs/shared/storage/src",
-            "projectType": "library",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/shared/storage/**/*.ts"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/shared/storage"
-                    ],
-                    "options": {
-                        "jestConfig": "libs/shared/storage/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "apod-data-access-apod-list": {
-            "root": "libs/apod/data-access/apod-list",
-            "sourceRoot": "libs/apod/data-access/apod-list/src",
-            "projectType": "library",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/apod/data-access/apod-list/**/*.ts"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/apod/data-access/apod-list"
-                    ],
-                    "options": {
-                        "jestConfig": "libs/apod/data-access/apod-list/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "apod-ui-components-apod-card": {
-            "root": "libs/apod/ui/components/apod-card",
-            "sourceRoot": "libs/apod/ui/components/apod-card/src",
-            "projectType": "library",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/apod/ui/components/apod-card/**/*.ts"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/apod/ui/components/apod-card"
-                    ],
-                    "options": {
-                        "jestConfig": "libs/apod/ui/components/apod-card/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "apod-ui-components-apod-detail": {
-            "root": "libs/apod/ui/components/apod-detail",
-            "sourceRoot": "libs/apod/ui/components/apod-detail/src",
-            "projectType": "library",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/apod/ui/components/apod-detail/**/*.ts"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/apod/ui/components/apod-detail"
-                    ],
-                    "options": {
-                        "jestConfig": "libs/apod/ui/components/apod-detail/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "apod-ui-components-apod-list": {
-            "root": "libs/apod/ui/components/apod-list",
-            "sourceRoot": "libs/apod/ui/components/apod-list/src",
-            "projectType": "library",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/apod/ui/components/apod-list/**/*.ts"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/apod/ui/components/apod-list"
-                    ],
-                    "options": {
-                        "jestConfig": "libs/apod/ui/components/apod-list/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "apod-ui-components-apod-header": {
-            "root": "libs/apod/ui/components/apod-header",
-            "sourceRoot": "libs/apod/ui/components/apod-header/src",
-            "projectType": "library",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/apod/ui/components/apod-header/**/*.ts"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/apod/ui/components/apod-header"
-                    ],
-                    "options": {
-                        "jestConfig": "libs/apod/ui/components/apod-header/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "apod-ui-pages-default-layout": {
-            "root": "libs/apod/ui/pages/default-layout",
-            "sourceRoot": "libs/apod/ui/pages/default-layout/src",
-            "projectType": "library",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/apod/ui/pages/default-layout/**/*.ts"
-                        ]
-                    }
-                },
-                "test": {
-                    "builder": "@nrwl/jest:jest",
-                    "outputs": [
-                        "coverage/libs/apod/ui/pages/default-layout"
-                    ],
-                    "options": {
-                        "jestConfig": "libs/apod/ui/pages/default-layout/jest.config.js",
-                        "passWithNoTests": true
-                    }
-                }
-            }
-        },
-        "apod-ui-styles": {
-            "root": "libs/apod/ui/styles",
-            "sourceRoot": "libs/apod/ui/styles/src",
-            "projectType": "library",
-            "architect": {
-                "lint": {
-                    "builder": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": [
-                            "libs/apod/ui/styles/**/*.ts"
-                        ]
-                    }
-                }
-            }
-        }
-    },
-    "cli": {
-        "defaultCollection": "@nrwl/angular"
-    },
-    "schematics": {
-        "@nrwl/angular": {
-            "application": {
-                "linter": "eslint"
+  "version": 1,
+  "projects": {
+    "apod": {
+      "projectType": "application",
+      "root": "apps/apod",
+      "sourceRoot": "apps/apod/src",
+      "prefix": "pad",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/apod",
+            "index": "apps/apod/src/index.html",
+            "main": "apps/apod/src/main.ts",
+            "polyfills": "apps/apod/src/polyfills.ts",
+            "tsConfig": "apps/apod/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/apod/src/favicon.ico", "apps/apod/src/assets"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules/@angular", "libs/apod/ui/styles/src/lib"]
             },
-            "library": {
-                "linter": "eslint"
-            },
-            "storybook-configuration": {
-                "linter": "eslint"
+            "styles": ["apps/apod/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/apod/src/environments/environment.ts",
+                  "with": "apps/apod/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
+          }
         },
-        "@nrwl/angular:application": {
-            "unitTestRunner": "jest",
-            "e2eTestRunner": "cypress"
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "apod:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "apod:build:production"
+            }
+          }
         },
-        "@nrwl/angular:library": {
-            "unitTestRunner": "jest"
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "apod:build"
+          }
         },
-        "@nrwl/angular:component": {
-            "style": "scss"
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/apod/src/**/*.ts", "apps/apod/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/apod"],
+          "options": {
+            "jestConfig": "apps/apod/jest.config.js",
+            "passWithNoTests": true
+          }
         }
+      }
     },
-    "defaultProject": "apod"
+    "apod-e2e": {
+      "root": "apps/apod-e2e",
+      "sourceRoot": "apps/apod-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/apod-e2e/cypress.json",
+            "tsConfig": "apps/apod-e2e/tsconfig.e2e.json",
+            "devServerTarget": "apod:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "apod:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/apod-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "shared-mock-api-interceptor": {
+      "projectType": "library",
+      "root": "libs/shared/mock-api-interceptor",
+      "sourceRoot": "libs/shared/mock-api-interceptor/src",
+      "prefix": "pad",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/shared/mock-api-interceptor/tsconfig.lib.json",
+            "project": "libs/shared/mock-api-interceptor/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/mock-api-interceptor/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/mock-api-interceptor/src/**/*.ts",
+              "libs/shared/mock-api-interceptor/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/mock-api-interceptor"],
+          "options": {
+            "jestConfig": "libs/shared/mock-api-interceptor/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-storage": {
+      "root": "libs/shared/storage",
+      "sourceRoot": "libs/shared/storage/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/storage/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/storage"],
+          "options": {
+            "jestConfig": "libs/shared/storage/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-data-access-apod-list": {
+      "root": "libs/apod/data-access/apod-list",
+      "sourceRoot": "libs/apod/data-access/apod-list/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/data-access/apod-list/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/data-access/apod-list"],
+          "options": {
+            "jestConfig": "libs/apod/data-access/apod-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-components-apod-card": {
+      "root": "libs/apod/ui/components/apod-card",
+      "sourceRoot": "libs/apod/ui/components/apod-card/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/components/apod-card/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/components/apod-card"],
+          "options": {
+            "jestConfig": "libs/apod/ui/components/apod-card/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-components-apod-detail": {
+      "root": "libs/apod/ui/components/apod-detail",
+      "sourceRoot": "libs/apod/ui/components/apod-detail/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/components/apod-detail/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/components/apod-detail"],
+          "options": {
+            "jestConfig": "libs/apod/ui/components/apod-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-components-apod-list": {
+      "root": "libs/apod/ui/components/apod-list",
+      "sourceRoot": "libs/apod/ui/components/apod-list/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/components/apod-list/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/components/apod-list"],
+          "options": {
+            "jestConfig": "libs/apod/ui/components/apod-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-components-apod-header": {
+      "root": "libs/apod/ui/components/apod-header",
+      "sourceRoot": "libs/apod/ui/components/apod-header/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/components/apod-header/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/components/apod-header"],
+          "options": {
+            "jestConfig": "libs/apod/ui/components/apod-header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-pages-default-layout": {
+      "root": "libs/apod/ui/pages/default-layout",
+      "sourceRoot": "libs/apod/ui/pages/default-layout/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/pages/default-layout/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/ui/pages/default-layout"],
+          "options": {
+            "jestConfig": "libs/apod/ui/pages/default-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-ui-styles": {
+      "root": "libs/apod/ui/styles",
+      "sourceRoot": "libs/apod/ui/styles/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/ui/styles/**/*.ts"]
+          }
+        }
+      }
+    },
+    "shared-core": {
+      "root": "libs/shared/core",
+      "sourceRoot": "libs/shared/core/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/core/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/core"],
+          "options": {
+            "jestConfig": "libs/shared/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "apod-core": {
+      "root": "libs/apod/core",
+      "sourceRoot": "libs/apod/core/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/apod/core/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/apod/core"],
+          "options": {
+            "jestConfig": "libs/apod/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "apod"
 }

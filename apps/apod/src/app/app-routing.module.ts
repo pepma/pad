@@ -5,13 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('@pad/apod/ui/pages/default-layout').then((m) => m.DefaultLayoutModule),
-    pathMatch: 'full',
   },
-  // {
-  //   path: '',
-  //   redirectTo: '/apod',
-  //   pathMatch: 'full',
-  // },
   // {
   //   path: '**',
   //   component: NotFoundComponent,
