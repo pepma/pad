@@ -1,0 +1,6 @@
+- header not visible when detail (portal-host)
+- translate? with wrapper
+- search ?
+- param number of apods to list
+- test and coverage
+- ci/cd
