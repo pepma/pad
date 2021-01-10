@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDividerModule } from '@angular/material/divider';
-import { ApodDetailComponent } from './apod-detail/apod-detail.component';
+import { ApodCardComponent } from './apod-card/apod-card.component';
 
 @NgModule({
   imports: [CommonModule, FlexLayoutModule, MatDividerModule],
-  exports: [ApodDetailComponent],
-  declarations: [ApodDetailComponent],
+  exports: [ApodCardComponent],
+  declarations: [ApodCardComponent],
 })
 export class ApodCardModule {}
